@@ -1,20 +1,32 @@
 import React from "react";
+import { Link, useMatch, useResolvedPath } from "react-router-dom";
 
-const NavBar = () => {
+import Badge from "@material-ui/core/Badge";
+import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
+
+const NavBar = (props) => {
     return <nav className="nav">
-        <a href="/" className="site-title">Cameras and More</a>
+        <Link to="/" className="site-title">Cameras and More</Link>
+        <Badge color="red" badgeContent={props.itemCount}>
+          <ShoppingCartIcon />{" "}
+        </Badge>
         <ul>
-            <li className="active">
-                <a href="/Cameras" className="active">Cameras</a>
-            </li>
-            <li> 
-                <a href="/Lenses">Lenses</a>
-            </li>
-            <li>
-                <a href="/Other">Other</a>
-            </li>
+            <CustomLink to="/Cameras">Cameras</CustomLink>
+            <CustomLink to="/Lenses">Lenses</CustomLink>
+            <CustomLink to="/Others">Others</CustomLink>
+            <CustomLink to="/ShoppingCart">Shopping Cart</CustomLink>
         </ul>
     </nav>
+}
+
+const CustomLink = ({ to, children, ...props }) => {
+    const resolvedPath = useResolvedPath(to);
+    const isActive = useMatch({path : resolvedPath.pathname, end : true});
+    return(
+        <li className={isActive === to ? "active" : ""}>
+            <Link to={to} {...props}>{children}</Link>
+        </li>
+    )
 }
 
 export default NavBar;

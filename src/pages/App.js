@@ -1,21 +1,25 @@
-import React from "react";
+import React, { useState } from "react";
 import NavBar from "./Navbar";
 import "../index.css";
 import { Route, Routes } from "react-router-dom";
 import Cameras from "./Cameras";
 import Lenses from "./Lenses";
 import Other from "./Others";
+import Home from "./Home";
+import ShoppingCart from "./Shopping";
 
 const App = () => {
+  const [itemCount, setItemCount] = useState(0);
   return (
     <>
-      <NavBar />
+      <NavBar itemCount={itemCount} />
       <div className="container">
         <Routes>
-          <Route path="/" element={<App/>}></Route>
-          <Route path="/Cameras" element={<Cameras/>}></Route>
-          <Route path="/Lenses" element={<Lenses/>}></Route>
-          <Route path="/Others" element={<Other/>}></Route>
+          <Route path="/" element={<Home/>} />
+          <Route path="/Cameras" element={<Cameras/>} />
+          <Route path="/Lenses" element={<Lenses/>} />
+          <Route path="/Others" element={<Other/>} />
+          <Route path="/ShoppingCart" element={<ShoppingCart/>} />
         </Routes>
       </div>
     </>
