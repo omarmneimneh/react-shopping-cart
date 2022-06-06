@@ -1,6 +1,10 @@
 *{
   box-sizing: border-box;
 }
+html{
+  overflow: auto;
+  height:100%
+}
 body {
   margin: 0;
   font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
@@ -8,6 +12,8 @@ body {
     sans-serif;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  height:100%;
+  overflow: auto;
 }
 
 code {
@@ -23,8 +29,17 @@ code {
   display: flex;
   justify-content: space-between;
   align-items: center;
+  height: 10vh;
   gap: 2rem;
   padding: 0 1rem;
+}
+.innerNav{
+  width: 65%;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin: auto;
+
 }
 
 .nav a { 
@@ -41,13 +56,17 @@ code {
   margin:0;
   list-style: none;
   display: flex;
-  gap: 1rem;
+  align-items: center;
+  gap:7rem;
+  font-size: 1.25rem;
 }
 
 .site-title{
-  font-size: 2rem;
+  font-size: 2.25rem;
   font-weight: bold;
   text-decoration: none;
+  align-items: center;
+
 }
 
 .active {
@@ -60,3 +79,38 @@ code {
   border-radius: 5px;
 }
 
+.container{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  height: auto;
+}
+
+.footer {
+  position: absolute;
+  bottom: 0;
+  width: 100%;
+  height: 5%;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  background-color: #333;
+}
+.footer>a {
+  color: white;
+  text-decoration: none;
+}
+.cameras{
+  display:grid;
+  grid-template-columns: repeat(3, 1fr);
+  gap: 1rem;
+}
+
+.camera{
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+}
+.camera img{
+  height: 25%;
+}

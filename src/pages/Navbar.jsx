@@ -6,16 +6,16 @@ import ShoppingCartIcon from "@material-ui/icons/ShoppingCart";
 
 const NavBar = (props) => {
     return <nav className="nav">
-        <Link to="/" className="site-title">Cameras and More</Link>
-        <Badge color="red" badgeContent={props.itemCount}>
-          <ShoppingCartIcon />{" "}
-        </Badge>
-        <ul>
-            <CustomLink to="/Cameras">Cameras</CustomLink>
-            <CustomLink to="/Lenses">Lenses</CustomLink>
-            <CustomLink to="/Others">Others</CustomLink>
-            <CustomLink to="/ShoppingCart">Shopping Cart</CustomLink>
-        </ul>
+        <div className="innerNav">
+            <Link to="/" className="site-title">Cameras&More</Link>
+            <ul>
+                <CustomLink to="/Cameras">Cameras</CustomLink>
+                <CustomLink to="/Lenses">Lenses</CustomLink>
+                <CustomLink to="/ShoppingCart"><Badge color="secondary" badgeContent={props.itemCount}>
+            <ShoppingCartIcon />{" "}
+            </Badge></CustomLink>
+            </ul> 
+        </div> 
     </nav>
 }
 
